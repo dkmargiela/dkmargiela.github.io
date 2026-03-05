@@ -149,7 +149,7 @@ function bounceGhost(ghost) {
   if (ghost.y < 0) {
     ghost.y -= ghost.speedY;
     ghost.speedY *= -1;
-  }
+  }   v vb v
   // this bounces off the bottom wall
   else if (ghost.y > boardHeight) {
     ghost.y -= ghost.speedY;

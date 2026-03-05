@@ -10,9 +10,22 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
-  // Game Item Objects
+  var KEY = {
+  ENTER: 13,
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40
+};
 
+  // Game Item Objects
+// Game Item Objects
+var walker = {
+  "x": 0,       // horizontal position
+  "y": 0,       // vertical position
+  "speedX": 0,  // horizontal speed
+  "speedY": 0   // vertical speed
+};
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -23,7 +36,7 @@ function runProgram(){
 
   Note: You can have multiple event listeners for different types of events.
   */
-  $(document).on('eventType', handleEvent);                          
+  $(document).on('keydown', handleKeyDown);                          
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -34,8 +47,7 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem(); 
   }
   
   /* 
@@ -44,8 +56,25 @@ function runProgram(){
   
   Note: You can have multiple event handlers for different types of events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(keydown) {
 
+    if (keydown.which === KEY.LEFT) {
+  console.log("left pressed");
+}
+
+   if (keydown.which === KEY.UP) {
+    console.log("up pressed");
+  }
+  
+   if (keydown.which === KEY.RIGHT) {
+    console.log("right pressed");
+  }
+  
+   if (keydown.which === KEY.DOWN) {
+    console.log("down pressed");
+  }
+
+  console.log(keydown.which);
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -60,5 +89,8 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
+  function repositionGameItem() {
+  walker.x += walker.speedX;
+  walker.y += walker.speedY;
+}
 }
