@@ -62,7 +62,7 @@ function init() {
   makeApple();
 
   // TODO 6, Part 1: Initialize the interval
-  gameInterval = setInterval(update, 100);
+  updateInterval = setInterval(update, 100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
